@@ -1,5 +1,7 @@
 CC=g++
-CFLAGS=-I/usr/include/ImageMagick -Wall
+# Use commented line for linux
+#CFLAGS=-I/usr/include/ImageMagick -Wall
+CFLAGS=-I/usr/local/include/ImageMagick -Wall
 MAGICK=`Magick++-config --cppflags --cxxflags --ldflags --libs`
 
 segment: 
