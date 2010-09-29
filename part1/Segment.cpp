@@ -13,7 +13,15 @@
 
 #include <Magick++.h>
 #include <string>
+#include <queue>
 #include <iostream>
+#include <sstream>
+
+struct point
+{
+	int x;
+	int y;
+};
 
 int main(int argc, char * argv[])
 {
@@ -48,8 +56,7 @@ int main(int argc, char * argv[])
 		std::cout << "Image size is: " << height << "x" << width << std::endl;
 	
 		int segments = 0;
-		int s[width][height];
-
+		int s[height][width];
 		for(int i = 0; i < height; i++)
 		{
 			for(int j = 0; j < width; j++)
@@ -57,6 +64,8 @@ int main(int argc, char * argv[])
 				s[i][j] = -1;
 			}
 		}
+
+		std::queue<point> toCheck;
 
 		Magick::ColorYUV pixel;
 		double y,u,v;
@@ -67,67 +76,107 @@ int main(int argc, char * argv[])
 		{
 			for(int j = 0; j < width; j++)
 			{
+
+				point add;
+				add.x = i;
+				add.y = j;
+				if(s[add.x][add.y] < 0)
+				{
+					toCheck.push(add);
+				}
 				// Check all neighbors
-				h_min = i - 1;
-				h_max = i + 1;
-				if(h_min < 0)
+				while(! toCheck.empty())
 				{
-					h_min = 0;
-				}
-				if(h_max > (height -1))
-				{
-					h_max = height - 1;
-				}
+					point next = toCheck.front();
+					toCheck.pop();
 
-				w_min = j - 1;
-				w_max = j + 1;
-				if(w_min < 0)
-				{
-					w_min = 0;
-				}
-				if(w_max > (width -1))
-				{
-					w_max = width - 1;
-				}
-
-				int found = 0;
-				for(int n = h_min; n <= h_max; n++)
-				{
-					for(int m = w_min; m <= w_max; m++)
+					while(( !toCheck.empty()) && (s[next.x][next.y] > 0))
 					{
-		//				std::cout << "(" << i << "," << j << ") is now checking neighbor (" << n << "," << m << ")" << std::endl;
-						if(s[n][m] > 0)
+						next = toCheck.front();
+						toCheck.pop();
+					}
+					h_min = next.x - 1;
+					h_max = next.x + 1;
+					if(h_min < 0)
+					{
+						h_min = 0;
+					}
+					if(h_max > (height -1))
+					{
+						h_max = height - 1;
+					}
+
+					w_min = next.y - 1;
+					w_max = next.y + 1;
+					if(w_min < 0)
+					{
+						w_min = 0;
+					}
+					if(w_max > (width -1))
+					{
+						w_max = width - 1;
+					}
+
+					int found = 0;
+					for(int n = h_min; n <= h_max; n++)
+					{
+						for(int m = w_min; m <= w_max; m++)
 						{
-		//					std::cout << "(" << n << "," << m << ") has a segment" << std::endl;
-							pixel = image.pixelColor(i,j);
-							y = pixel.y();
-							u = pixel.u();
-							v = pixel.v();
-							pixel = image.pixelColor(n,m);
-							y1 = pixel.y();
-							u1 = pixel.u();
-							v1 = pixel.v();
-		//					std::cout << "comparing (" << y << "," << u << "," << v << ") with (" << y1 << "," << u1 << "," << v1 << ")" << std::endl;
-							if((y == y1) && (u == u1) && (v == v1))
+							if(s[n][m] > 0)
 							{
-		//						std::cout << "Found! (" << n << "," << m << ") segment is" << s[n][m] << std::endl;
-								s[i][j] = s[n][m];
-								found = 1;
+								pixel = image.pixelColor(next.x,next.y);
+								y = pixel.y();
+								u = pixel.u();
+								v = pixel.v();
+								pixel = image.pixelColor(n,m);
+								y1 = pixel.y();
+								u1 = pixel.u();
+								v1 = pixel.v();
+								// TODO output all these in an else to see wtf values they think are off
+								if((y == y1) && (u == u1) && (v == v1))
+								{
+									s[next.x][next.y] = s[n][m];
+									found = 1;
+									point p;
+									for(int nn = h_min; nn <= h_max; nn++)
+									{
+										for(int mm = w_min; mm <= w_max; mm++)
+										{
+											p.x = nn;
+											p.y = mm;
+											if(s[p.x][p.y] == -1)
+											{
+												s[p.x][p.y] = -2;
+												toCheck.push(p);
+											}
+										}
+									}
+
+								}
 							}
 						}
 					}
-				}
-				if(found == 0)
-				{
-					segments++;
-					s[i][j] = segments;
-		//			std::cout << "Not found, (" << i << "," << j << ") segment is " << s[i][j] << std::endl;
+					if(found == 0)
+					{
+						segments++;
+						//std::cout << "new seg#" << segments << " " << next.x << "," << next.y << std::endl;
+						s[next.x][next.y] = segments;
+					}
 				}
 			}
 		}
 
 		std::cout << "I found: " << segments << " segments" << std::endl;
+			
+		std::string segString;
+		std::ostringstream oss;
+		oss << segments << "\n";
+		segString = oss.str();
+		image.fillColor("white");
+		image.fontPointsize(15);
+		image.annotate(segString,Magick::NorthWestGravity);
 		image.write(output);
+		std::cout << "Saved as output.png" << std::endl;
 	}
 	catch(Magick::Exception &error_)
 	{
