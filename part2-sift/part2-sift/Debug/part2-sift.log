@@ -1,0 +1,151 @@
+﻿Build started 10/11/2010 10:20:39 PM.
+     1>Project "C:\Users\hardcore\class\cse515\part2-sift\part2-sift\part2-sift.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Touching "Debug\part2-sift.unsuccessfulbuild".
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TC /analyze- /errorReport:prompt sift.c vl\generic.c vl\getopt_long.c vl\host.c vl\mathop.c vl\mathop_sse2.c vl\pgm.c vl\sift.c vl\stringop.c
+         stringop.c
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\stringop.c(71): error C2491: 'vl_string_parse_protocol' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\stringop.c(114): error C2491: 'vl_string_protocol_name' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\stringop.c(154): error C2491: 'vl_string_basename' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\stringop.c(207): error C2491: 'vl_string_replace_wildcard' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\stringop.c(263): error C2491: 'vl_string_copy' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\stringop.c(302): error C2491: 'vl_string_copy_sub' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\stringop.c(333): error C2491: 'vl_string_find_char_rev' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\stringop.c(350): error C2491: 'vl_string_length' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\stringop.c(365): error C2491: 'vl_string_casei_cmp' : definition of dllimport function not allowed
+         sift.c
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(769): warning C4244: '=' : conversion from 'double' to 'vl_sift_pix', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(805): warning C4244: '=' : conversion from 'double' to 'vl_size', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(827): warning C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(833): warning C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(897): error C2491: 'vl_sift_new' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(906): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(967): error C2491: 'vl_sift_delete' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(998): error C2491: 'vl_sift_process_first_octave' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(1104): error C2491: 'vl_sift_process_next_octave' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(1174): error C2491: 'vl_sift_detect' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(1439): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(1440): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(1441): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(1442): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(1496): warning C4244: 'function' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(1501): warning C4244: '=' : conversion from 'double' to 'vl_sift_pix', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(1503): warning C4244: 'function' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(1509): warning C4244: 'function' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(1515): warning C4244: '=' : conversion from 'double' to 'vl_sift_pix', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(1516): warning C4244: 'function' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(1521): warning C4244: '=' : conversion from 'double' to 'vl_sift_pix', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(1522): warning C4244: '=' : conversion from 'double' to 'vl_sift_pix', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(1523): warning C4244: 'function' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(1528): warning C4244: '=' : conversion from 'double' to 'vl_sift_pix', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(1529): warning C4244: 'function' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(1535): warning C4244: 'function' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(1540): warning C4244: '=' : conversion from 'double' to 'vl_sift_pix', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(1542): warning C4244: 'function' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(1548): warning C4244: 'function' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(1582): error C2491: 'vl_sift_calc_keypoint_orientations' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(1600): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(1781): error C2491: 'vl_sift_calc_raw_descriptor' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(1796): warning C4244: 'initializing' : conversion from 'double' to 'const int', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(1838): warning C4244: 'function' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(1841): warning C4244: 'initializing' : conversion from 'double' to 'vl_sift_pix', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(1842): warning C4244: 'initializing' : conversion from 'double' to 'vl_sift_pix', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(1846): warning C4244: 'initializing' : conversion from 'const double' to 'vl_sift_pix', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(1847): warning C4244: 'initializing' : conversion from 'const double' to 'vl_sift_pix', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(1848): warning C4244: 'initializing' : conversion from 'double' to 'vl_sift_pix', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(1854): warning C4244: 'initializing' : conversion from 'const double' to 'const vl_sift_pix', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(1856): warning C4244: 'initializing' : conversion from 'double' to 'vl_sift_pix', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(1860): warning C4244: 'function' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(1861): warning C4244: 'function' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(1863): warning C4244: 'initializing' : conversion from 'double' to 'vl_sift_pix', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(1864): warning C4244: 'initializing' : conversion from 'double' to 'vl_sift_pix', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(1916): warning C4305: '=' : truncation from 'double' to 'vl_sift_pix'
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(1947): error C2491: 'vl_sift_calc_keypoint_descriptor' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(1985): warning C4244: 'initializing' : conversion from 'double' to 'const int', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(2035): warning C4244: 'function' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(2038): warning C4244: 'initializing' : conversion from 'double' to 'vl_sift_pix', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(2039): warning C4244: 'initializing' : conversion from 'double' to 'vl_sift_pix', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(2043): warning C4244: 'initializing' : conversion from 'const double' to 'vl_sift_pix', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(2044): warning C4244: 'initializing' : conversion from 'const double' to 'vl_sift_pix', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(2045): warning C4244: 'initializing' : conversion from 'double' to 'vl_sift_pix', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(2051): warning C4244: 'initializing' : conversion from 'double' to 'const vl_sift_pix', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(2053): warning C4244: 'initializing' : conversion from 'double' to 'vl_sift_pix', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(2057): warning C4244: 'function' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(2058): warning C4244: 'function' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(2060): warning C4244: 'initializing' : conversion from 'double' to 'vl_sift_pix', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(2061): warning C4244: 'initializing' : conversion from 'double' to 'vl_sift_pix', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(2105): warning C4305: '=' : truncation from 'double' to 'vl_sift_pix'
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(2188): error C2491: 'vl_sift_keypoint_init' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(2212): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(2213): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(2214): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\sift.c(2216): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+         pgm.c
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\pgm.c(129): error C2491: 'vl_pgm_get_npixels' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\pgm.c(147): error C2491: 'vl_pgm_get_bpp' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\pgm.c(169): error C2491: 'vl_pgm_extract_head' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\pgm.c(276): error C2491: 'vl_pgm_extract_data' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\pgm.c(355): error C2491: 'vl_pgm_insert' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\pgm.c(419): error C2491: 'vl_pgm_read_new' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\pgm.c(476): error C2491: 'vl_pgm_read_new_f' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\pgm.c(515): error C2491: 'vl_pgm_write' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\pgm.c(557): error C2491: 'vl_pgm_write_f' : definition of dllimport function not allowed
+         mathop_sse2.c
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\mathop_sse2.c(19): fatal error C1189: #error :  "mathop_sse2.c must be compiled with SSE2 intrinsics enabled"
+         mathop.c
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\mathop.c(201): error C2491: '_vl_distance_l2_f' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\mathop.c(214): error C2491: '_vl_distance_l1_f' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\mathop.c(227): error C2491: '_vl_distance_chi2_f' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\mathop.c(247): error C2491: '_vl_distance_hellinger_f' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\mathop.c(254): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\mathop.c(265): error C2491: '_vl_distance_js_f' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\mathop.c(280): error C2491: '_vl_kernel_l2_f' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\mathop.c(294): error C2491: '_vl_kernel_l1_f' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\mathop.c(310): error C2491: '_vl_kernel_chi2_f' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\mathop.c(329): error C2491: '_vl_kernel_hellinger_f' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\mathop.c(347): error C2491: '_vl_kernel_js_f' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\mathop.c(363): error C2491: 'vl_get_vector_comparison_function_f' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\mathop.c(405): error C2491: 'vl_eval_vector_comparison_on_all_pairs_f' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\mathop.c(201): error C2491: '_vl_distance_l2_d' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\mathop.c(214): error C2491: '_vl_distance_l1_d' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\mathop.c(227): error C2491: '_vl_distance_chi2_d' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\mathop.c(247): error C2491: '_vl_distance_hellinger_d' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\mathop.c(265): error C2491: '_vl_distance_js_d' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\mathop.c(280): error C2491: '_vl_kernel_l2_d' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\mathop.c(294): error C2491: '_vl_kernel_l1_d' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\mathop.c(310): error C2491: '_vl_kernel_chi2_d' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\mathop.c(329): error C2491: '_vl_kernel_hellinger_d' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\mathop.c(347): error C2491: '_vl_kernel_js_d' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\mathop.c(363): error C2491: 'vl_get_vector_comparison_function_d' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\mathop.c(405): error C2491: 'vl_eval_vector_comparison_on_all_pairs_d' : definition of dllimport function not allowed
+         host.c
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\host.c(424): warning C4996: '_snprintf': This function or variable may be unsafe. Consider using _snprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(363) : see declaration of '_snprintf'
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\host.c(441): error C2491: 'vl_static_configuration_to_string_copy' : definition of dllimport function not allowed
+         getopt_long.c
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\getopt_long.c(20): error C2491: 'opterr' : definition of dllimport data not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\getopt_long.c(21): error C2491: 'optind' : definition of dllimport data not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\getopt_long.c(70): error C2491: 'getopt_long' : definition of dllimport function not allowed
+         generic.c
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\generic.c(348): error C2491: 'vl_get_version_string' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\generic.c(362): error C2491: 'vl_configuration_to_string_copy' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\generic.c(418): error C2491: 'vl_lock_state' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\generic.c(451): error C2491: 'vl_unlock_state' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\generic.c(586): error C2491: 'vl_set_last_error' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\generic.c(619): error C2491: 'vl_set_alloc_func' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\generic.c(632): error C2491: 'vl_set_printf_func' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\generic.c(645): error C2491: 'vl_get_cpu_time' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\generic.c(664): error C2491: 'vl_tic' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\generic.c(691): error C2491: 'vl_toc' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\generic.c(713): error C2491: 'vl_get_rand' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\generic.c(723): error C2491: 'vl_thread_specific_state_new' : definition of dllimport function not allowed
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\vl\generic.c(744): error C2491: 'vl_thread_specific_state_delete' : definition of dllimport function not allowed
+         sift.c
+     1>c:\users\hardcore\class\cse515\part2-sift\part2-sift\sift.c(16): fatal error C1083: Cannot open include file: 'generic-driver.h': No such file or directory
+         Generating Code...
+     1>Done Building Project "C:\Users\hardcore\class\cse515\part2-sift\part2-sift\part2-sift.vcxproj" (build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:03.30
