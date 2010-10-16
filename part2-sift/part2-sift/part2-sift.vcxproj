@@ -10,6 +10,14 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Sift.cpp" />
+    <ClCompile Include="Sifter.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Sift.h" />
+    <ClInclude Include="Sifter.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{C75D7820-2839-4B32-9E05-5120B8565A32}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
@@ -50,11 +58,17 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)vlfeat-0.9.9;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(ProjectDir)vlfeat-0.9.9\bin\w32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>vl.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>copy $(ProjectDir)vlfeat-0.9.9\bin\w32\vl.dll $(SolutionDir)$(ConfigurationName)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -65,34 +79,20 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>vlfeat-0.9.9;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>vlfeat-0.9.9\bin\w32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>vl.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>copy vlfeat-0.9.9\bin\win32\vl.dll $(SolutionDir)$(ConfigurationName)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="sift.c" />
-    <ClCompile Include="vl\generic.c" />
-    <ClCompile Include="vl\getopt_long.c" />
-    <ClCompile Include="vl\host.c" />
-    <ClCompile Include="vl\mathop.c" />
-    <ClCompile Include="vl\mathop_sse2.c" />
-    <ClCompile Include="vl\pgm.c" />
-    <ClCompile Include="vl\sift.c" />
-    <ClCompile Include="vl\stringop.c" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="vl\generic-driver.h" />
-    <ClInclude Include="vl\generic.h" />
-    <ClInclude Include="vl\host.h" />
-    <ClInclude Include="vl\mathop.h" />
-    <ClInclude Include="vl\pgm.h" />
-    <ClInclude Include="vl\sift.h" />
-    <ClInclude Include="vl\stringop.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

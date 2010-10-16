@@ -888,7 +888,6 @@ copy_and_downsample
  ** @sa ::vl_sift_delete().
  **/
 
-
 VL_EXPORT
 VlSiftFilt *
 vl_sift_new (int width, int height,
