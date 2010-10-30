@@ -9,6 +9,20 @@ Sifter::Sifter(void)
 {
 }
 
+// This will replace runSift and return a combined vector of vectors...
+std::vector<std::vector<float>> Sifter::keynodeSetExtract(Image**, int targetK, int targetL)
+{
+	// Add imagemagick code to convert to pgm
+
+	// Basically will contain all the runSift code
+
+	// Now I have two vectors containing k and l; i'll prune k (and delete relevant rows of l)
+
+	// Then you can do your magick on the l vector
+
+	// now we just combine our k and l vectors together and return...think that works...
+}
+
 void Sifter::runSift(std::string input, Sift *sdata)
 {
 	std::ifstream pgmfile;
@@ -77,10 +91,10 @@ int main(int argc, const char * argv[]){
 	{
 		std::cout << myp[0][i] << ", " << std::endl;
 	}
-	std::cout << "first k:" << std::endl;
+	/*std::cout << "first k:" << std::endl;
 	for(i = 0; i < 128; i++)
 	{
 		std::cout << myk[0][i] << ", " << std::endl;
-	}
+	}*/
 	return 0;
 }
