@@ -4,14 +4,31 @@
 #include <string>
 #include "Sifter.h"
 #include "Sift.h"
+#include <Magick++.h>
+
 
 Sifter::Sifter(void)
 {
 }
 
 // This will replace runSift and return a combined vector of vectors...
-std::vector<std::vector<float>> Sifter::keynodeSetExtract(Image**, int targetK, int targetL)
+// parameters are a string that is the filename of the original (unsegemented) image
+// targetK and targetL specified
+std::vector<std::vector<float>> Sifter::keynodeSetExtract(std::string fname, int targetK, int targetL)
 {
+	// get our pgm file
+	try
+	{
+		std::cout << "working on " << fname << std::endl;
+		Magick::Image image(fname);
+		//std::string output = "temp.pgm";
+		//image.write(output);
+	}
+	catch(Magick::Exception &error_)
+	{
+		std::cout << "Error!: " << std::endl;
+		std::cout << error_.what() << std::endl;
+	}
 	// Add imagemagick code to convert to pgm
 
 	// Basically will contain all the runSift code
@@ -21,6 +38,9 @@ std::vector<std::vector<float>> Sifter::keynodeSetExtract(Image**, int targetK, 
 	// Then you can do your magick on the l vector
 
 	// now we just combine our k and l vectors together and return...think that works...
+	// combining them just to float; inefficient but I think it works...
+	std::vector<std::vector<float>> pruned;
+	return pruned;
 }
 
 void Sifter::runSift(std::string input, Sift *sdata)
@@ -74,7 +94,8 @@ Sifter::~Sifter(void)
 
 int main(int argc, const char * argv[]){
 	Sifter test;
-	Sift *data;
+	test.keynodeSetExtract("example1.png", 10,128);
+	/*Sift *data;
 	data = new Sift();
 
 	char *f = "example2.pgm";
@@ -90,7 +111,7 @@ int main(int argc, const char * argv[]){
 	for(i = 0; i < 4; i++)
 	{
 		std::cout << myp[0][i] << ", " << std::endl;
-	}
+	}*/
 	/*std::cout << "first k:" << std::endl;
 	for(i = 0; i < 128; i++)
 	{
