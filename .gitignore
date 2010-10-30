@@ -2,3 +2,17 @@ part1/segment
 *.png
 *.PNG
 *.swp
+part2-sift/part2-sift/Debug
+part2-sift/part2-sift/Debug/*
+part2-sift/part2-sift/ipch
+part2-sift/part2-sift/Release
+part2-sift/Debug
+part2-sift/Release
+part2-sift/ipch
+part2-sift/part2-sift.opensdf
+*.sdf
+*.suo
+*.log
+*.tlog
+*.vcxproj
+*.filters
