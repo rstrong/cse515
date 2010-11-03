@@ -24,9 +24,7 @@ std::vector<std::vector<float>> Sifter::keynodeSetExtract(std::string fname, int
 		// convert image to pgm
 		std::cout << "Loading: " << fname << std::endl;
 		Magick::Image image(fname);
-		// Move it to the gray colorspace
 		image.quantizeColorSpace(Magick::GRAYColorspace);
-		// Write it out
 		image.write("test.pgm");
 	}
 	catch(Magick::Exception &error_)
@@ -35,16 +33,13 @@ std::vector<std::vector<float>> Sifter::keynodeSetExtract(std::string fname, int
 		std::cout << error_.what() << std::endl;
 	}
 
-	// can't get image magick working properly under windows...ignoring for now
-
-	//for now just use temp.pgm file
 	std::string pgmFile = "test.pgm";
 	Sift *sdata;
 	sdata = new Sift();
 	this->runSift(pgmFile,sdata);
 
 	// so this is confusing and I probably should change it
-	//get P returns 4 float K points
+	// get P returns 4 float K points
 	// get K returns descriptors
 	std::vector<std::vector<float>> myp = sdata->getP();
 	std::vector<std::vector<int>> myk = sdata->getK();
@@ -53,10 +48,6 @@ std::vector<std::vector<float>> Sifter::keynodeSetExtract(std::string fname, int
 	if(targetK > myp.size())
 	{
 		targetK = myp.size();
-	}
-	if(targetL > 128)
-	{
-		targetL = 128;
 	}
 	
 	float ratioCheck = targetK / myp.size();
@@ -72,14 +63,14 @@ std::vector<std::vector<float>> Sifter::keynodeSetExtract(std::string fname, int
 	{
 		numFor25 = targetK;
 	}
+
 	std::vector<int> candidates; // contains the indexes of our candidates for being a k, node.  These will eventually be the 
 	
 	// points that get clustered
 
-
-	
 	typedef std::map<float, int> MapType;
-	MapType my_map;	
+	MapType my_map;
+
 	for(int i = 0; i < myp.size(); i++)
 	{
 		my_map.insert(std::pair<float,int>(myp[i][2],i));
@@ -109,12 +100,13 @@ std::vector<std::vector<float>> Sifter::keynodeSetExtract(std::string fname, int
 	}
 	
 	std::vector<std::vector<float>> prunedP;
+	std::vector<std::vector<int>> descriptors;
 	std::vector<std::vector<int>> prunedL;
 
 	for(int i = 0; i < final.size(); i++)
 	{
 		prunedP.push_back(myp[final[i]]);
-		prunedL.push_back(myk[final[i]]);
+		descriptors.push_back(myk[final[i]]);
 	}
 	
 
@@ -130,12 +122,38 @@ std::vector<std::vector<float>> Sifter::keynodeSetExtract(std::string fname, int
 
 	// ACE - Prune each L here 
 	// pruned L contains k vectors of descriptors; this k is our selected k
+	// vector of vectors,iterate through and run my thing on the 128's.
+	// target l lets me know how many, between 1-128.
+	// Once all pruned, return pruned, so take his add mine and make one vector of them joined
+	// These are 4*4 of histograms with 8 directions.
 	std::cout << "Ace prune here " << std::endl;
 
+	int levelVal,pruneVal = 128 - targetL;
+	int i = 0;
+	if(targetL < 128){ // Prune 8's down to 4's
+		levelVal = 64;
+		
+	}else if(targetL < 64){ // Prune 4's corners
+		
+	}else if(targetL < 48){ // Prune outside
+
+	}else if(targetL < 32){ // Remove outside
+		
+	}else if(targetL < 16){ // Prune inside
+	
+	}else if(targetL < 8){ // Join inside
+	
+	}else if(targetL < 4){ // Join again
+	
+	}// else it's > 128 and no pruning is necessary
 	
 	// combine rows of P and L and return
 
 	return pruned;
+}
+
+std::vector<int> Sifter::dPruner(std::vector<int> d, int interval, int start){
+
 }
 
 std::vector<int> Sifter::kMeans(int targetK, std::vector<int> candidates, std::vector<std::vector<float>> data)
