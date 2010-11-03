@@ -22,6 +22,12 @@ std::vector<std::vector<float>> Sifter::keynodeSetExtract(std::string fname, int
 	try
 	{
 		// convert image to pgm
+		std::cout << "Loading: " << fname << std::endl;
+		Magick::Image image(fname);
+		// Move it to the gray colorspace
+		image.quantizeColorSpace(Magick::GRAYColorspace);
+		// Write it out
+		image.write("test.pgm");
 	}
 	catch(Magick::Exception &error_)
 	{
@@ -32,7 +38,7 @@ std::vector<std::vector<float>> Sifter::keynodeSetExtract(std::string fname, int
 	// can't get image magick working properly under windows...ignoring for now
 
 	//for now just use temp.pgm file
-	std::string pgmFile = "temp.pgm";
+	std::string pgmFile = "test.pgm";
 	Sift *sdata;
 	sdata = new Sift();
 	this->runSift(pgmFile,sdata);
@@ -124,7 +130,7 @@ std::vector<std::vector<float>> Sifter::keynodeSetExtract(std::string fname, int
 
 	// ACE - Prune each L here 
 	// pruned L contains k vectors of descriptors; this k is our selected k
-
+	std::cout << "Ace prune here " << std::endl;
 
 	
 	// combine rows of P and L and return
@@ -290,7 +296,7 @@ Sifter::~Sifter(void)
 int main(int argc, const char * argv[]){
 	Sifter test;
 	std::vector<std::vector<float>> exam;
-	exam = test.keynodeSetExtract("example1.png", 10,10);
+	exam = test.keynodeSetExtract(argv[1], 10,10);
 	for(int i = 0; i < exam.size(); i++)
 	{
 		for(int j = 0; j < exam[i].size(); j++)
