@@ -47,8 +47,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\hardcore\class\cse515\part2-sift\part2-sift\ImageMagick-6.6.5-Q16\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\hardcore\class\cse515\part2-sift\part2-sift\ImageMagick-6.6.5-Q16\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)\ImageMagick-6.6.5-Q16\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)\ImageMagick-6.6.5-Q16\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -59,18 +59,20 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)vlfeat-0.9.9;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4251;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(ProjectDir)vlfeat-0.9.9\bin\w32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>vl.lib;CORE_RL_Magick++_.lib;CORE_RL_Magick_.lib;X11.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>CORE_RL_Magick++_.lib;CORE_RL_Magick_.lib;X11.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(ProjectDir)vlfeat-0.9.9\bin\w32\vl.dll $(SolutionDir)$(ConfigurationName)</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
