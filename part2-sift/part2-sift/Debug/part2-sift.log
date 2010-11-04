@@ -1,5 +1,5 @@
-﻿Build started 11/3/2010 1:25:59 AM.
-     1>Project "C:\Users\Ace\Documents\Visual Studio 2010\Projects\515Sift\part2-sift\part2-sift\part2-sift.vcxproj" on node 2 (rebuild target(s)).
+﻿Build started 11/3/2010 6:07:47 PM.
+     1>Project "C:\Users\ace\Documents\Visual Studio 2010\Projects\515Sift\part2-sift\part2-sift\part2-sift.vcxproj" on node 2 (rebuild target(s)).
      1>_PrepareForClean:
          Deleting file "Debug\part2-sift.lastbuildstate".
        InitializeBuildStatus:
@@ -7,29 +7,29 @@
        ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /wd4251 /analyze- /errorReport:prompt Sift.cpp Sifter.cpp
          Sifter.cpp
-     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(53): warning C4018: '>' : signed/unsigned mismatch
-     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(62): warning C4244: 'initializing' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(70): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
-     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(83): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(114): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(122): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(124): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(166): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(171): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(182): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(187): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(197): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(201): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(223): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(300): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(302): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(48): warning C4018: '>' : signed/unsigned mismatch
+     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(53): warning C4244: 'initializing' : conversion from 'unsigned int' to 'float', possible loss of data
+     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(61): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(74): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(106): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(167): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(169): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(229): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(234): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(245): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(250): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(260): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(264): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(286): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(363): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(365): warning C4018: '<' : signed/unsigned mismatch
          Sift.cpp
      1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sift.cpp(39): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
          Generating Code...
        ManifestResourceCompile:
          C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\part2-sift.exe.embed.manifest.res" Debug\part2-sift_manifest.rc 
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Ace\Documents\Visual Studio 2010\Projects\515Sift\part2-sift\Debug\part2-sift.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Users\Ace\Documents\Visual Studio 2010\Projects\515Sift\part2-sift\part2-sift\vlfeat-0.9.9\bin\w32" CORE_RL_Magick++_.lib CORE_RL_Magick_.lib X11.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\part2-sift.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Ace\Documents\Visual Studio 2010\Projects\515Sift\part2-sift\Debug\part2-sift.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Ace\Documents\Visual Studio 2010\Projects\515Sift\part2-sift\Debug\part2-sift.lib" /MACHINE:X86 "Debug\part2-sift.exe.embed.manifest.res"
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\ace\Documents\Visual Studio 2010\Projects\515Sift\part2-sift\Debug\part2-sift.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Users\ace\Documents\Visual Studio 2010\Projects\515Sift\part2-sift\part2-sift\vlfeat-0.9.9\bin\w32" CORE_RL_Magick++_.lib CORE_RL_Magick_.lib X11.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\part2-sift.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\ace\Documents\Visual Studio 2010\Projects\515Sift\part2-sift\Debug\part2-sift.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\ace\Documents\Visual Studio 2010\Projects\515Sift\part2-sift\Debug\part2-sift.lib" /MACHINE:X86 "Debug\part2-sift.exe.embed.manifest.res"
          Debug\Sift.obj
          Debug\Sifter.obj
        Manifest:
@@ -37,15 +37,15 @@
          C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\part2-sift.exe.embed.manifest" /manifest "Debug\part2-sift.exe.intermediate.manifest"
          C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\part2-sift.exe.embed.manifest.res" Debug\part2-sift_manifest.rc 
        LinkEmbedManifest:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Ace\Documents\Visual Studio 2010\Projects\515Sift\part2-sift\Debug\part2-sift.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Users\Ace\Documents\Visual Studio 2010\Projects\515Sift\part2-sift\part2-sift\vlfeat-0.9.9\bin\w32" CORE_RL_Magick++_.lib CORE_RL_Magick_.lib X11.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\part2-sift.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Ace\Documents\Visual Studio 2010\Projects\515Sift\part2-sift\Debug\part2-sift.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Ace\Documents\Visual Studio 2010\Projects\515Sift\part2-sift\Debug\part2-sift.lib" /MACHINE:X86 "Debug\part2-sift.exe.embed.manifest.res"
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\ace\Documents\Visual Studio 2010\Projects\515Sift\part2-sift\Debug\part2-sift.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Users\ace\Documents\Visual Studio 2010\Projects\515Sift\part2-sift\part2-sift\vlfeat-0.9.9\bin\w32" CORE_RL_Magick++_.lib CORE_RL_Magick_.lib X11.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\part2-sift.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\ace\Documents\Visual Studio 2010\Projects\515Sift\part2-sift\Debug\part2-sift.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\ace\Documents\Visual Studio 2010\Projects\515Sift\part2-sift\Debug\part2-sift.lib" /MACHINE:X86 "Debug\part2-sift.exe.embed.manifest.res"
          Debug\Sift.obj
          Debug\Sifter.obj
-         part2-sift.vcxproj -> C:\Users\Ace\Documents\Visual Studio 2010\Projects\515Sift\part2-sift\Debug\part2-sift.exe
+         part2-sift.vcxproj -> C:\Users\ace\Documents\Visual Studio 2010\Projects\515Sift\part2-sift\Debug\part2-sift.exe
        FinalizeBuildStatus:
          Deleting file "Debug\part2-sift.unsuccessfulbuild".
          Touching "Debug\part2-sift.lastbuildstate".
-     1>Done Building Project "C:\Users\Ace\Documents\Visual Studio 2010\Projects\515Sift\part2-sift\part2-sift\part2-sift.vcxproj" (rebuild target(s)).
+     1>Done Building Project "C:\Users\ace\Documents\Visual Studio 2010\Projects\515Sift\part2-sift\part2-sift\part2-sift.vcxproj" (rebuild target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:06.59
+Time Elapsed 00:00:05.71

@@ -12,6 +12,7 @@ public:
 	std::vector<int> Sifter::kMeans(int, std::vector<int>, std::vector<std::vector<float>>);
 	int Sifter::getClosestCentroid(std::vector<std::vector<float>>,float,float);
 	float Sifter::distance(float, float, float, float);
-	std::vector<int> Sifter::dpruner(std::vector<int>, int, int);
+	std::vector<int> Sifter::dPruneByJoin(std::vector<int>, int, int);
+	std::vector<int> Sifter::dPruneByDrop(std::vector<int>, int, int);
 };
 
