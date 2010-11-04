@@ -1,9 +1,7 @@
-﻿Build started 11/3/2010 7:37:02 PM.
+﻿Build started 11/3/2010 8:23:03 PM.
      1>Project "C:\Users\Ace\Documents\Visual Studio 2010\Projects\515Sift\part2-sift\part2-sift\part2-sift.vcxproj" on node 2 (rebuild target(s)).
      1>_PrepareForClean:
          Deleting file "Debug\part2-sift.lastbuildstate".
-       PrepareForBuild:
-         Creating directory "C:\Users\Ace\Documents\Visual Studio 2010\Projects\515Sift\part2-sift\Debug\".
        InitializeBuildStatus:
          Creating "Debug\part2-sift.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
@@ -14,17 +12,19 @@
      1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(61): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
      1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(74): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(106): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(167): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(169): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(229): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(234): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(245): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(250): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(260): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(264): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(286): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(363): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(168): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(171): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(182): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(197): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(231): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(236): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(247): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(252): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(262): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(266): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(288): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(365): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sifter.cpp(367): warning C4018: '<' : signed/unsigned mismatch
          Sift.cpp
      1>c:\users\ace\documents\visual studio 2010\projects\515sift\part2-sift\part2-sift\sift.cpp(39): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
          Generating Code...
@@ -50,4 +50,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:07.01
+Time Elapsed 00:00:04.65

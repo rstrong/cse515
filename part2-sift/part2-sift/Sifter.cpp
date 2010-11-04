@@ -118,7 +118,8 @@ std::vector<std::vector<float>> Sifter::keynodeSetExtract(std::string fname, int
 	// target l lets me know how many, between 1-128.
 	// Once all pruned, return pruned, so take his add mine and make one vector of them joined
 	// These are 4*4 of histograms with 8 directions.
-	std::cout << "Ace prune here " << std::endl;
+	std::cout << "Ace prune here, target: " << targetL << std::endl;
+	targetL = 24;
 	for(std::vector<std::vector<int>>::size_type i=0; i!=descriptors.size(); i++){
 		int start = 0;
 		int interval = 7;
@@ -166,6 +167,7 @@ std::vector<std::vector<float>> Sifter::keynodeSetExtract(std::string fname, int
 	// for example, printing all descriptors
 	for(int i = 0; i < prunedL.size(); i++)
 	{
+		std::cout << "Row " << i << ": ";
 		for(int j = 0; j < prunedL[i].size(); j++)
 		{
 			std::cout << prunedL[i][j] << " ";
@@ -176,8 +178,8 @@ std::vector<std::vector<float>> Sifter::keynodeSetExtract(std::string fname, int
 }
 
 std::vector<int> Sifter::dPruneByJoin(std::vector<int> d, int interval, int start){
-	std::vector<int> pruned;
-	for(std::vector<int>::size_type i=0; i!=d.size(); i++){
+	std::vector<int> pruned; pruned.clear();
+	for(int i=0; i < d.size(); i++){
 		if(i % interval == start){
 			pruned.push_back(d[i]+d[i+1]);
 			i+=2;
@@ -190,9 +192,9 @@ std::vector<int> Sifter::dPruneByJoin(std::vector<int> d, int interval, int star
 }
 
 std::vector<int> Sifter::dPruneByDrop(std::vector<int> d, int block, int blockSize){
-	std::vector<int> pruned;
+	std::vector<int> pruned; pruned.clear();
 	int currentBlock = 0;
-	for(std::vector<int>::size_type i=0; i!=d.size(); i++){
+	for(int i=0; i < d.size(); i++){
 		if(i%blockSize==0){	currentBlock++; };
 		if(block!=currentBlock){
 			pruned.push_back(d[i]);
