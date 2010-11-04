@@ -1,7 +1,9 @@
-﻿Build started 11/3/2010 6:07:47 PM.
-     1>Project "C:\Users\ace\Documents\Visual Studio 2010\Projects\515Sift\part2-sift\part2-sift\part2-sift.vcxproj" on node 2 (rebuild target(s)).
+﻿Build started 11/3/2010 7:37:02 PM.
+     1>Project "C:\Users\Ace\Documents\Visual Studio 2010\Projects\515Sift\part2-sift\part2-sift\part2-sift.vcxproj" on node 2 (rebuild target(s)).
      1>_PrepareForClean:
          Deleting file "Debug\part2-sift.lastbuildstate".
+       PrepareForBuild:
+         Creating directory "C:\Users\Ace\Documents\Visual Studio 2010\Projects\515Sift\part2-sift\Debug\".
        InitializeBuildStatus:
          Creating "Debug\part2-sift.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
@@ -29,7 +31,7 @@
        ManifestResourceCompile:
          C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\part2-sift.exe.embed.manifest.res" Debug\part2-sift_manifest.rc 
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\ace\Documents\Visual Studio 2010\Projects\515Sift\part2-sift\Debug\part2-sift.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Users\ace\Documents\Visual Studio 2010\Projects\515Sift\part2-sift\part2-sift\vlfeat-0.9.9\bin\w32" CORE_RL_Magick++_.lib CORE_RL_Magick_.lib X11.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\part2-sift.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\ace\Documents\Visual Studio 2010\Projects\515Sift\part2-sift\Debug\part2-sift.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\ace\Documents\Visual Studio 2010\Projects\515Sift\part2-sift\Debug\part2-sift.lib" /MACHINE:X86 "Debug\part2-sift.exe.embed.manifest.res"
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Ace\Documents\Visual Studio 2010\Projects\515Sift\part2-sift\Debug\part2-sift.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Users\Ace\Documents\Visual Studio 2010\Projects\515Sift\part2-sift\part2-sift\ImageMagick-6.6.5-Q16" /LIBPATH:"C:\Users\Ace\Documents\Visual Studio 2010\Projects\515Sift\part2-sift\part2-sift\vlfeat-0.9.9\bin\w32" CORE_RL_Magick++_.lib CORE_RL_Magick_.lib X11.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\part2-sift.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Ace\Documents\Visual Studio 2010\Projects\515Sift\part2-sift\Debug\part2-sift.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Ace\Documents\Visual Studio 2010\Projects\515Sift\part2-sift\Debug\part2-sift.lib" /MACHINE:X86 "Debug\part2-sift.exe.embed.manifest.res"
          Debug\Sift.obj
          Debug\Sifter.obj
        Manifest:
@@ -37,15 +39,15 @@
          C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\part2-sift.exe.embed.manifest" /manifest "Debug\part2-sift.exe.intermediate.manifest"
          C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\part2-sift.exe.embed.manifest.res" Debug\part2-sift_manifest.rc 
        LinkEmbedManifest:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\ace\Documents\Visual Studio 2010\Projects\515Sift\part2-sift\Debug\part2-sift.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Users\ace\Documents\Visual Studio 2010\Projects\515Sift\part2-sift\part2-sift\vlfeat-0.9.9\bin\w32" CORE_RL_Magick++_.lib CORE_RL_Magick_.lib X11.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\part2-sift.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\ace\Documents\Visual Studio 2010\Projects\515Sift\part2-sift\Debug\part2-sift.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\ace\Documents\Visual Studio 2010\Projects\515Sift\part2-sift\Debug\part2-sift.lib" /MACHINE:X86 "Debug\part2-sift.exe.embed.manifest.res"
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Ace\Documents\Visual Studio 2010\Projects\515Sift\part2-sift\Debug\part2-sift.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Users\Ace\Documents\Visual Studio 2010\Projects\515Sift\part2-sift\part2-sift\ImageMagick-6.6.5-Q16" /LIBPATH:"C:\Users\Ace\Documents\Visual Studio 2010\Projects\515Sift\part2-sift\part2-sift\vlfeat-0.9.9\bin\w32" CORE_RL_Magick++_.lib CORE_RL_Magick_.lib X11.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\part2-sift.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Ace\Documents\Visual Studio 2010\Projects\515Sift\part2-sift\Debug\part2-sift.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Ace\Documents\Visual Studio 2010\Projects\515Sift\part2-sift\Debug\part2-sift.lib" /MACHINE:X86 "Debug\part2-sift.exe.embed.manifest.res"
          Debug\Sift.obj
          Debug\Sifter.obj
-         part2-sift.vcxproj -> C:\Users\ace\Documents\Visual Studio 2010\Projects\515Sift\part2-sift\Debug\part2-sift.exe
+         part2-sift.vcxproj -> C:\Users\Ace\Documents\Visual Studio 2010\Projects\515Sift\part2-sift\Debug\part2-sift.exe
        FinalizeBuildStatus:
          Deleting file "Debug\part2-sift.unsuccessfulbuild".
          Touching "Debug\part2-sift.lastbuildstate".
-     1>Done Building Project "C:\Users\ace\Documents\Visual Studio 2010\Projects\515Sift\part2-sift\part2-sift\part2-sift.vcxproj" (rebuild target(s)).
+     1>Done Building Project "C:\Users\Ace\Documents\Visual Studio 2010\Projects\515Sift\part2-sift\part2-sift\part2-sift.vcxproj" (rebuild target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:05.71
+Time Elapsed 00:00:07.01
