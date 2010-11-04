@@ -16,9 +16,8 @@ Sifter::Sifter(void)
 // This will replace runSift and return a combined vector of vectors...
 // parameters are a string that is the filename of the original (unsegemented) image
 // targetK and targetL specified
-std::vector<std::vector<float>> Sifter::keynodeSetExtract(std::string fname, int targetK, int targetL)
+std::vector<std::vector<int>> Sifter::keynodeSetExtract(std::string fname, int targetK, int targetL)
 {
-	
 	try
 	{
 		// convert image to pgm
@@ -109,30 +108,41 @@ std::vector<std::vector<float>> Sifter::keynodeSetExtract(std::string fname, int
 		descriptors.push_back(myk[final[i]]);
 	}
 	
-
+	for(int i = 0; i < descriptors.size(); i++)
+	{
+		std::cout << "Row " << i << ": ";
+		for(int j = 0; j < descriptors[i].size(); j++)
+		{
+			std::cout << descriptors[i][j] << " ";
+		}
+		std::cout << std::endl;
+	}
 	
 
-	// ACE - Prune each L here 
-	// pruned L contains k vectors of descriptors; this k is our selected k
-	// vector of vectors,iterate through and run my thing on the 128's.
-	// target l lets me know how many, between 1-128.
-	// Once all pruned, return pruned, so take his add mine and make one vector of them joined
-	// These are 4*4 of histograms with 8 directions.
-	std::cout << "Ace prune here, target: " << targetL << std::endl;
-	targetL = 24;
-	for(std::vector<std::vector<int>>::size_type i=0; i!=descriptors.size(); i++){
+	// Currently prunes 128-64 with 16 sized steps, then 64-48 with
+	// 4 sized steps, then 48-24 by 12 sized steps, then 24-8 by 2
+	// Not very elegant blech.
+	for(int i=0; i < descriptors.size(); i++){
 		int start = 0;
-		int interval = 7;
+		int interval = 8;
 		int pruneVal = 128 - targetL;
-		std::vector<int> tmp;
+		std::vector<int> tmp = descriptors[i];
 		
 		if(targetL < 128){ // Prune 8's down to 4's
 			while(pruneVal > 0 && start < 4){
-				tmp = Sifter::dPruneByJoin(descriptors[i], interval, start);
+				//std::cout << "128 prune val: " << pruneVal << " start: " << start << " target: " << targetL << std::endl;
+				tmp = Sifter::dPruneByJoin(tmp, interval, start);
+				/*for(int j = 0; j < tmp.size(); j++)
+				{
+					std::cout << tmp[j] << " ";
+				}
+				std::cout << std::endl;*/
 				start++; interval--;
 				pruneVal = pruneVal - 16;
 			}
-		}else if(targetL < 64){ // Prune 4's corners
+		}
+		if(targetL < 64){ // Prune 4's corners
+			std::cout << "Cornering, pruneVal: " << pruneVal << std::endl;
 			int corner = 3;
 			int corners[4] = {1, 4, 13, 16};
 			while(pruneVal > 0 && corner >= 0){
@@ -141,15 +151,17 @@ std::vector<std::vector<float>> Sifter::keynodeSetExtract(std::string fname, int
 				corner--; 
 				pruneVal = pruneVal - 4;
 			}
-		}else if(targetL < 48){ // Prune outside
+		}
+		if(targetL < 48){ // Prune outside
 			start = 0;
-			interval = 3;
+			interval = 4;
 			while(pruneVal > 0 && start < 2){
 				tmp = Sifter::dPruneByJoin(tmp, interval, start);
 				start++; interval--;
 				pruneVal = pruneVal - 12;
 			}
-		}else if(targetL < 24){ // Remove outside
+		}
+		if(targetL < 24){ // Remove outside
 			int corner = 7;
 			int corners[8] = {1, 2, 3, 6, 7, 10, 11, 12};
 			while(pruneVal > 0 && corner >= 0){
@@ -158,13 +170,11 @@ std::vector<std::vector<float>> Sifter::keynodeSetExtract(std::string fname, int
 				corner--; 
 				pruneVal = pruneVal - 2;
 			}
-		}else{ // else it's > 128 and no pruning is necessary
-			tmp = descriptors[i];	
 		}
 		prunedL.push_back(tmp);
 	}
-	// combine rows of P and L and return
-	// for example, printing all descriptors
+
+	// Final pruned results
 	for(int i = 0; i < prunedL.size(); i++)
 	{
 		std::cout << "Row " << i << ": ";
@@ -174,18 +184,18 @@ std::vector<std::vector<float>> Sifter::keynodeSetExtract(std::string fname, int
 		}
 		std::cout << std::endl;
 	}
-	return pruned;
+	return prunedL;
 }
 
 std::vector<int> Sifter::dPruneByJoin(std::vector<int> d, int interval, int start){
 	std::vector<int> pruned; pruned.clear();
+	std::cout << "D size: " << d.size() << std::endl;
 	for(int i=0; i < d.size(); i++){
 		if(i % interval == start){
 			pruned.push_back(d[i]+d[i+1]);
-			i+=2;
+			i++;
 		}else{
 			pruned.push_back(d[i]);
-			i++;
 		}
 	};
 	return pruned;
@@ -360,7 +370,7 @@ Sifter::~Sifter(void)
 
 int main(int argc, const char * argv[]){
 	Sifter test;
-	std::vector<std::vector<float>> exam;
+	std::vector<std::vector<int>> exam;
 	exam = test.keynodeSetExtract(argv[1], 10,10);
 	for(int i = 0; i < exam.size(); i++)
 	{

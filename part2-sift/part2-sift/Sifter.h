@@ -7,7 +7,7 @@ public:
 	Sifter(void);
 	~Sifter(void);
 	void runSift (std::string, Sift *);
-	std::vector<std::vector<float>> keynodeSetExtract(std::string, int, int);
+	std::vector<std::vector<int>> keynodeSetExtract(std::string, int, int);
 	void Sifter::getSortedIndices(std::vector<std::vector<float>>, std::vector<int>, int, int);
 	std::vector<int> Sifter::kMeans(int, std::vector<int>, std::vector<std::vector<float>>);
 	int Sifter::getClosestCentroid(std::vector<std::vector<float>>,float,float);
