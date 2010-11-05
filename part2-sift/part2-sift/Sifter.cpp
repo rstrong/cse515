@@ -112,9 +112,9 @@ std::vector<std::vector<int>> Sifter::keynodeSetExtract(std::string fname, int t
 	for(int i = 0; i < descriptors.size(); i++)
 	{
 		std::cout << "Row " << i << ": ";
-		for(int j = 0; j < descriptors[i].size(); j++)
+		for(int j = 0; j < prunedP[i].size(); j++)
 		{
-			std::cout << descriptors[i][j] << " ";
+			std::cout << prunedP[i][j] << " ";
 		}
 		std::cout << std::endl;
 	}*/
@@ -218,7 +218,7 @@ std::vector<int> Sifter::kMeans(int targetK, std::vector<int> candidates, std::v
 {
 	std::vector<std::vector<int>> member;
 	std::vector<std::vector<float>> centroids;
-
+	
 	//initialize our members, just to top k
 	for(int i = 0; i < targetK; i++)
 	{
@@ -235,7 +235,7 @@ std::vector<int> Sifter::kMeans(int targetK, std::vector<int> candidates, std::v
 	
 
 	// let's just start with 5...
-	for(int i = 0; i < 5; i++)
+	for(int i = 0; i < 10; i++)
 	{
 		//re compute centroid
 		//for every cluster
@@ -249,8 +249,24 @@ std::vector<int> Sifter::kMeans(int targetK, std::vector<int> candidates, std::v
 				x += data[c[k]][0]; // add x value for each member of cluster
 				y += data[c[k]][1]; // add y value for each member of cluster
 			}
-			x = x / c.size();
-			y = y / c.size();
+			int s = c.size();
+			if(s == 0)
+			{
+				s = 1;
+			}
+			x = x / s;
+			y = y / s;
+			
+			// 0,0 are empty clusters, so let's random pick another centroid
+			if(x == 0)
+			{
+				x = std::rand() % 100 + 1;
+			}
+			if(y == 0)
+			{
+				y = std::rand() % 100 + 1;
+			}
+			
 			centroids[j][0] = x;
 			centroids[j][1] = y;
 		}
@@ -272,17 +288,31 @@ std::vector<int> Sifter::kMeans(int targetK, std::vector<int> candidates, std::v
 	// now we find the members closest to their centroids
 	for(int i = 0; i < centroids.size(); i++)
 	{
+		//std::cout << "centroid " << i << " :: " << centroids[i][0] << "," << centroids[i][1] << std::endl;
 		float distance = 10000;
 		int winner = 0;
 		for(int j = 0; j < member[i].size(); j++)
 		{
 			float d = this->distance(centroids[i][0],centroids[i][1],data[member[i][j]][0],data[member[i][j]][1]);
+			//std::cout << "d: " << d << " vs distance: " << distance << std::endl;
 			if(d < distance)
-			{
-				distance = d;
-				winner = member[i][j];
+			{	
+				bool dupe = false;
+				for(int d = 0; d < final.size(); d++)
+				{
+					if(final[d] == member[i][j])
+					{
+						dupe = true;
+					}
+				}
+				if(! dupe)
+				{
+					distance = d;
+					winner = member[i][j];
+				}
 			}
 		}
+		//std::cout << "Found winner: " << winner << std::endl;
 		final.push_back(winner);
 	}
 	
