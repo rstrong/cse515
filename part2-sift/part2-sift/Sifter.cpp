@@ -108,6 +108,7 @@ std::vector<std::vector<int>> Sifter::keynodeSetExtract(std::string fname, int t
 		descriptors.push_back(myk[final[i]]);
 	}
 	
+	/*
 	for(int i = 0; i < descriptors.size(); i++)
 	{
 		std::cout << "Row " << i << ": ";
@@ -116,7 +117,7 @@ std::vector<std::vector<int>> Sifter::keynodeSetExtract(std::string fname, int t
 			std::cout << descriptors[i][j] << " ";
 		}
 		std::cout << std::endl;
-	}
+	}*/
 	
 
 	// Currently prunes 128-64 with 16 sized steps, then 64-48 with
@@ -142,7 +143,7 @@ std::vector<std::vector<int>> Sifter::keynodeSetExtract(std::string fname, int t
 			}
 		}
 		if(targetL < 64){ // Prune 4's corners
-			std::cout << "Cornering, pruneVal: " << pruneVal << std::endl;
+			//std::cout << "Cornering, pruneVal: " << pruneVal << std::endl;
 			int corner = 3;
 			int corners[4] = {1, 4, 13, 16};
 			while(pruneVal > 0 && corner >= 0){
@@ -177,19 +178,19 @@ std::vector<std::vector<int>> Sifter::keynodeSetExtract(std::string fname, int t
 	// Final pruned results
 	for(int i = 0; i < prunedL.size(); i++)
 	{
-		std::cout << "Row " << i << ": ";
+		//std::cout << "Row " << i << ": ";
 		for(int j = 0; j < prunedL[i].size(); j++)
 		{
-			std::cout << prunedL[i][j] << " ";
+		//	std::cout << prunedL[i][j] << " ";
 		}
-		std::cout << std::endl;
+		//std::cout << std::endl;
 	}
 	return prunedL;
 }
 
 std::vector<int> Sifter::dPruneByJoin(std::vector<int> d, int interval, int start){
 	std::vector<int> pruned; pruned.clear();
-	std::cout << "D size: " << d.size() << std::endl;
+	//std::cout << "D size: " << d.size() << std::endl;
 	for(int i=0; i < d.size(); i++){
 		if(i % interval == start){
 			pruned.push_back(d[i]+d[i+1]);
@@ -368,6 +369,7 @@ Sifter::~Sifter(void)
 {
 }
 
+/*
 int main(int argc, const char * argv[]){
 	Sifter test;
 	std::vector<std::vector<int>> exam;
@@ -401,6 +403,6 @@ int main(int argc, const char * argv[]){
 	for(i = 0; i < 128; i++)
 	{
 		std::cout << myk[0][i] << ", " << std::endl;
-	}*/
+	}
 	return 0;
-}
+}*/

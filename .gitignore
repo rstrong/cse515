@@ -1,5 +1,7 @@
 part1/segment
 *.png
+*.pgm
+*.sift
 *.PNG
 *.swp
 part2-sift/part2-sift/Debug
