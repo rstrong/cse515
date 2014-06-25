@@ -16,12 +16,15 @@ Sifter::Sifter(void)
 // This will replace runSift and return a combined vector of vectors...
 // parameters are a string that is the filename of the original (unsegemented) image
 // targetK and targetL specified
-std::vector<std::vector<float>> Sifter::keynodeSetExtract(std::string fname, int targetK, int targetL)
+std::vector<std::vector<int>> Sifter::keynodeSetExtract(std::string fname, int targetK, int targetL)
 {
-	
 	try
 	{
 		// convert image to pgm
+		std::cout << "Loading: " << fname << std::endl;
+		Magick::Image image(fname);
+		image.quantizeColorSpace(Magick::GRAYColorspace);
+		image.write("test.pgm");
 	}
 	catch(Magick::Exception &error_)
 	{
@@ -29,16 +32,13 @@ std::vector<std::vector<float>> Sifter::keynodeSetExtract(std::string fname, int
 		std::cout << error_.what() << std::endl;
 	}
 
-	// can't get image magick working properly under windows...ignoring for now
-
-	//for now just use temp.pgm file
-	std::string pgmFile = "temp.pgm";
+	std::string pgmFile = "test.pgm";
 	Sift *sdata;
 	sdata = new Sift();
 	this->runSift(pgmFile,sdata);
 
 	// so this is confusing and I probably should change it
-	//get P returns 4 float K points
+	// get P returns 4 float K points
 	// get K returns descriptors
 	std::vector<std::vector<float>> myp = sdata->getP();
 	std::vector<std::vector<int>> myk = sdata->getK();
@@ -47,10 +47,6 @@ std::vector<std::vector<float>> Sifter::keynodeSetExtract(std::string fname, int
 	if(targetK > myp.size())
 	{
 		targetK = myp.size();
-	}
-	if(targetL > 128)
-	{
-		targetL = 128;
 	}
 	
 	float ratioCheck = targetK / myp.size();
@@ -66,14 +62,14 @@ std::vector<std::vector<float>> Sifter::keynodeSetExtract(std::string fname, int
 	{
 		numFor25 = targetK;
 	}
+
 	std::vector<int> candidates; // contains the indexes of our candidates for being a k, node.  These will eventually be the 
 	
 	// points that get clustered
 
-
-	
 	typedef std::map<float, int> MapType;
-	MapType my_map;	
+	MapType my_map;
+
 	for(int i = 0; i < myp.size(); i++)
 	{
 		my_map.insert(std::pair<float,int>(myp[i][2],i));
@@ -103,32 +99,118 @@ std::vector<std::vector<float>> Sifter::keynodeSetExtract(std::string fname, int
 	}
 	
 	std::vector<std::vector<float>> prunedP;
+	std::vector<std::vector<int>> descriptors;
 	std::vector<std::vector<int>> prunedL;
 
 	for(int i = 0; i < final.size(); i++)
 	{
 		prunedP.push_back(myp[final[i]]);
-		prunedL.push_back(myk[final[i]]);
+		descriptors.push_back(myk[final[i]]);
 	}
 	
-
-	// for example, printing all descriptors
-	for(int i = 0; i < prunedL.size(); i++)
+	/*
+	for(int i = 0; i < descriptors.size(); i++)
 	{
-		for(int j = 0; j < prunedL[i].size(); j++)
+		std::cout << "Row " << i << ": ";
+		for(int j = 0; j < prunedP[i].size(); j++)
 		{
-			std::cout << prunedL[i][j] << " ";
+			std::cout << prunedP[i][j] << " ";
 		}
 		std::cout << std::endl;
+	}*/
+	
+
+	// Currently prunes 128-64 with 16 sized steps, then 64-48 with
+	// 4 sized steps, then 48-24 by 12 sized steps, then 24-8 by 2
+	// Not very elegant blech.
+	for(int i=0; i < descriptors.size(); i++){
+		int start = 0;
+		int interval = 8;
+		int pruneVal = 128 - targetL;
+		std::vector<int> tmp = descriptors[i];
+		
+		if(targetL < 128){ // Prune 8's down to 4's
+			while(pruneVal > 0 && start < 4){
+				//std::cout << "128 prune val: " << pruneVal << " start: " << start << " target: " << targetL << std::endl;
+				tmp = Sifter::dPruneByJoin(tmp, interval, start);
+				/*for(int j = 0; j < tmp.size(); j++)
+				{
+					std::cout << tmp[j] << " ";
+				}
+				std::cout << std::endl;*/
+				start++; interval--;
+				pruneVal = pruneVal - 16;
+			}
+		}
+		if(targetL < 64){ // Prune 4's corners
+			//std::cout << "Cornering, pruneVal: " << pruneVal << std::endl;
+			int corner = 3;
+			int corners[4] = {1, 4, 13, 16};
+			while(pruneVal > 0 && corner >= 0){
+				// We'll prune backwards
+				tmp = Sifter::dPruneByDrop(tmp, corners[corner], 4);
+				corner--; 
+				pruneVal = pruneVal - 4;
+			}
+		}
+		if(targetL < 48){ // Prune outside
+			start = 0;
+			interval = 4;
+			while(pruneVal > 0 && start < 2){
+				tmp = Sifter::dPruneByJoin(tmp, interval, start);
+				start++; interval--;
+				pruneVal = pruneVal - 12;
+			}
+		}
+		if(targetL < 24){ // Remove outside
+			int corner = 7;
+			int corners[8] = {1, 2, 3, 6, 7, 10, 11, 12};
+			while(pruneVal > 0 && corner >= 0){
+				// We'll prune backwards
+				tmp = Sifter::dPruneByDrop(tmp, corners[corner], 2);
+				corner--; 
+				pruneVal = pruneVal - 2;
+			}
+		}
+		prunedL.push_back(tmp);
 	}
 
-	// ACE - Prune each L here 
-	// pruned L contains k vectors of descriptors; this k is our selected k
+	// Final pruned results
+	for(int i = 0; i < prunedL.size(); i++)
+	{
+		//std::cout << "Row " << i << ": ";
+		for(int j = 0; j < prunedL[i].size(); j++)
+		{
+		//	std::cout << prunedL[i][j] << " ";
+		}
+		//std::cout << std::endl;
+	}
+	return prunedL;
+}
 
+std::vector<int> Sifter::dPruneByJoin(std::vector<int> d, int interval, int start){
+	std::vector<int> pruned; pruned.clear();
+	//std::cout << "D size: " << d.size() << std::endl;
+	for(int i=0; i < d.size(); i++){
+		if(i % interval == start){
+			pruned.push_back(d[i]+d[i+1]);
+			i++;
+		}else{
+			pruned.push_back(d[i]);
+		}
+	};
+	return pruned;
+}
 
-	
-	// combine rows of P and L and return
-
+std::vector<int> Sifter::dPruneByDrop(std::vector<int> d, int block, int blockSize){
+	std::vector<int> pruned; pruned.clear();
+	int currentBlock = 0;
+	for(int i=0; i < d.size(); i++){
+		if(i%blockSize==0){	currentBlock++; };
+		if(block!=currentBlock){
+			pruned.push_back(d[i]);
+		};
+	};
 	return pruned;
 }
 
@@ -136,7 +218,7 @@ std::vector<int> Sifter::kMeans(int targetK, std::vector<int> candidates, std::v
 {
 	std::vector<std::vector<int>> member;
 	std::vector<std::vector<float>> centroids;
-
+	
 	//initialize our members, just to top k
 	for(int i = 0; i < targetK; i++)
 	{
@@ -153,7 +235,7 @@ std::vector<int> Sifter::kMeans(int targetK, std::vector<int> candidates, std::v
 	
 
 	// let's just start with 5...
-	for(int i = 0; i < 5; i++)
+	for(int i = 0; i < 10; i++)
 	{
 		//re compute centroid
 		//for every cluster
@@ -167,8 +249,24 @@ std::vector<int> Sifter::kMeans(int targetK, std::vector<int> candidates, std::v
 				x += data[c[k]][0]; // add x value for each member of cluster
 				y += data[c[k]][1]; // add y value for each member of cluster
 			}
-			x = x / c.size();
-			y = y / c.size();
+			int s = c.size();
+			if(s == 0)
+			{
+				s = 1;
+			}
+			x = x / s;
+			y = y / s;
+			
+			// 0,0 are empty clusters, so let's random pick another centroid
+			if(x == 0)
+			{
+				x = std::rand() % 100 + 1;
+			}
+			if(y == 0)
+			{
+				y = std::rand() % 100 + 1;
+			}
+			
 			centroids[j][0] = x;
 			centroids[j][1] = y;
 		}
@@ -190,17 +288,31 @@ std::vector<int> Sifter::kMeans(int targetK, std::vector<int> candidates, std::v
 	// now we find the members closest to their centroids
 	for(int i = 0; i < centroids.size(); i++)
 	{
+		//std::cout << "centroid " << i << " :: " << centroids[i][0] << "," << centroids[i][1] << std::endl;
 		float distance = 10000;
 		int winner = 0;
 		for(int j = 0; j < member[i].size(); j++)
 		{
 			float d = this->distance(centroids[i][0],centroids[i][1],data[member[i][j]][0],data[member[i][j]][1]);
+			//std::cout << "d: " << d << " vs distance: " << distance << std::endl;
 			if(d < distance)
-			{
-				distance = d;
-				winner = member[i][j];
+			{	
+				bool dupe = false;
+				for(int d = 0; d < final.size(); d++)
+				{
+					if(final[d] == member[i][j])
+					{
+						dupe = true;
+					}
+				}
+				if(! dupe)
+				{
+					distance = d;
+					winner = member[i][j];
+				}
 			}
 		}
+		//std::cout << "Found winner: " << winner << std::endl;
 		final.push_back(winner);
 	}
 	
@@ -287,10 +399,11 @@ Sifter::~Sifter(void)
 {
 }
 
+/*
 int main(int argc, const char * argv[]){
 	Sifter test;
-	std::vector<std::vector<float>> exam;
-	exam = test.keynodeSetExtract("example1.png", 10,10);
+	std::vector<std::vector<int>> exam;
+	exam = test.keynodeSetExtract(argv[1], 10,10);
 	for(int i = 0; i < exam.size(); i++)
 	{
 		for(int j = 0; j < exam[i].size(); j++)
@@ -320,6 +433,6 @@ int main(int argc, const char * argv[]){
 	for(i = 0; i < 128; i++)
 	{
 		std::cout << myk[0][i] << ", " << std::endl;
-	}*/
+	}
 	return 0;
-}
+}*/
